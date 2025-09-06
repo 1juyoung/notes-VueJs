@@ -1,29 +1,28 @@
-# .
+# 📝 Notes Vue.js
 
-This template should help get you started developing with Vue 3 in Vite.
+간단한 **메모장 웹 애플리케이션**입니다.  
+Vue 3 + Vite + TailwindCSS를 기반으로 제작되었으며, 브라우저 **LocalStorage**를 활용해 메모를 저장/삭제할 수 있습니다.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 주요 기능
 
-## Customize configuration
+- ✅ 메모 작성 (제목 + 내용 입력)
+- ✅ 메모 삭제
+- ✅ LocalStorage 저장 (새로고침해도 데이터 유지)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 🖥️ 기술 스택
 
-```sh
-npm install
+- **Frontend Framework**: [Vue.js 3](https://vuejs.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/)
+- **State Management**: Vue의 `reactive`, `watch` 사용
+- **Storage**: LocalStorage
+
+---
+
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
