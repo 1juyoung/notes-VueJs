@@ -1,8 +1,9 @@
 @import "./base.css";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-@tailwind utilities;
+@import "tailwindcss/theme";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 #app {
   max-width: 1280px;
