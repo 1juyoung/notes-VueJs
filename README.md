@@ -1,11 +1,11 @@
-# 📝 Notes Vue.js
+# Notes Vue.js
 
 간단한 **메모장 웹 애플리케이션**입니다.  
 Vue 3 + Vite + TailwindCSS를 기반으로 제작되었으며, 브라우저 **LocalStorage**를 활용해 메모를 저장/삭제할 수 있습니다.
 
 ---
 
-## 🚀 주요 기능
+## 주요 기능
 
 - ✅ 메모 작성 (제목 + 내용 입력)
 - ✅ 메모 삭제
@@ -13,7 +13,7 @@ Vue 3 + Vite + TailwindCSS를 기반으로 제작되었으며, 브라우저 **Lo
 
 ---
 
-## 🖥️ 기술 스택
+## 기술 스택
 
 - **Frontend Framework**: [Vue.js 3](https://vuejs.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
@@ -23,6 +23,8 @@ Vue 3 + Vite + TailwindCSS를 기반으로 제작되었으며, 브라우저 **Lo
 
 ---
 
-```
+## 미리보기
 
-```
+<div align="center">
+  <img src="public/readme/readme.gif" alt="notes readme gif" />
+</div>
