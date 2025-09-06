@@ -1,47 +1,56 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { reactive, watch } from "vue";
+import NoteForm from "./components/NoteForm.vue";
+import NoteCard from "./components/NoteCard.vue";
+
+// 저장된 메모 불러오기
+const saved = localStorage.getItem("notes");
+const notes = reactive(saved ? JSON.parse(saved) : []);
+
+// 메모 추가
+function addNote(title, content) {
+  notes.push({ id: Date.now(), title, content });
+}
+
+// 메모 삭제
+function deleteNote(id) {
+  const index = notes.findIndex((note) => note.id === id);
+  if (index !== -1) notes.splice(index, 1);
+}
+
+// notes 배열 변경 시 localStorage에 저장
+watch(
+  () => notes,
+  (newVal) => {
+    localStorage.setItem("notes", JSON.stringify(newVal));
+  },
+  { deep: true }
+);
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="app">
+    <h1>📝 메모장</h1>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <NoteForm @add="addNote" />
+
+    <div v-if="notes.length > 0">
+      <NoteCard
+        v-for="note in notes"
+        :key="note.id"
+        :note="note"
+        @delete="deleteNote"
+      />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <p v-else>메모가 없습니다.</p>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
 }
 </style>
