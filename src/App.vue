@@ -30,11 +30,14 @@ watch(
 
 <template>
   <div class="app">
-    <h1>📝 메모장</h1>
+    <h1 class="text-3xl font-bold mb-6">📝 메모</h1>
 
     <NoteForm @add="addNote" />
 
-    <div v-if="notes.length > 0">
+    <div
+      v-if="notes.length > 0"
+      class="w-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-6"
+    >
       <NoteCard
         v-for="note in notes"
         :key="note.id"
@@ -42,15 +45,23 @@ watch(
         @delete="deleteNote"
       />
     </div>
-    <p v-else>메모가 없습니다.</p>
+    <p v-else class="text-gray-500 mt-6">
+      메모가 없습니다. 새로 작성해보세요 ✨
+    </p>
   </div>
 </template>
 
 <style>
 .app {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1rem;
-  font-family: Arial, sans-serif;
+  max-width: 900px;
+  min-width: 900px;
+  padding: 2rem;
+  font-family: "Arial", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 </style>
